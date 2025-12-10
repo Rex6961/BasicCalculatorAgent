@@ -6,7 +6,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class ADKModel(BaseModel):
     genai_use_vertexai: str
     api_key: SecretStr
-    model: str = Field(description='the agent model is free', default="gemini-2.5-flash")
+    model: str = Field(description='the agent model is free', default="gemini-2.5-flash-lite")
 
 
 class Settings(BaseSettings):

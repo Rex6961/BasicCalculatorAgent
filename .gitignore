@@ -217,3 +217,7 @@ __marimo__/
 
 
 tests/
+
+# Google ADK Local State
+.adk/
+**/.adk/

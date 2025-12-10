@@ -1,3 +1,5 @@
+import asyncio
+
 from enum import Enum
 from typing import Optional
 
@@ -23,7 +25,7 @@ class CalculatorOutput(BaseModel):
     success: bool = Field(..., description="True if calculation was successful")
 
 
-def basic_calculator(input_data: CalculatorInput) -> CalculatorOutput:
+async def basic_calculator(input_data: CalculatorInput) -> CalculatorOutput:
     """Performs basic arithmetic operations with strict validation.
 
     Args:
@@ -51,7 +53,7 @@ if __name__=="__main__":
 
         validation_input = CalculatorInput(**raw_data_from_agent)
 
-        output = basic_calculator(validation_input)
+        output = asyncio.run(basic_calculator(validation_input))
 
         print(output.model_dump(exclude_none=True))
 
